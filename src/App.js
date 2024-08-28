@@ -13,6 +13,8 @@ import BookingList from './components/BookingList'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Footer from './components/Footer'
 import NotFound from './components/NotFound'
+import Menu from './components/Menu'
+import PastaDetails from './components/PastaDetails'
 
 // BrowserRouter è un componente che permette l'utilizzo degli altri
 // elementi di routing al suo interno
@@ -40,6 +42,15 @@ function App() {
 
           <Route path="/booking" element={<TableBooking />} />
           {/* /booking */}
+
+          <Route path="/menu" element={<Menu />} />
+          {/* /menu */}
+
+          {/* rotta parametrica, dinamica */}
+          <Route path="/details/:pastaId" element={<PastaDetails />} />
+          {/* /details/0 */}
+          {/* /details/4 */}
+          {/* /details/stefano */}
 
           <Route path="*" element={<NotFound />} />
         </Routes>

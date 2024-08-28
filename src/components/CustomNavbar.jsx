@@ -25,6 +25,10 @@ const CustomNavbar = function () {
     { path: '/admin', name: 'Admin' },
   ])
 
+  const addActiveOrNot = (path) => {
+    return location.pathname === '/' + path ? 'nav-link active' : 'nav-link'
+  }
+
   return (
     <Navbar collapseOnSelect expand="md" bg="dark" data-bs-theme="dark">
       <Container fluid>
@@ -36,12 +40,7 @@ const CustomNavbar = function () {
           <Nav className="ms-auto">
             {/* il Link a "/" deve ricevere anche la classe "active" 
             se location.pathname === "/" */}
-            <Link
-              to="/"
-              className={
-                location.pathname === '/' ? 'nav-link active' : 'nav-link'
-              }
-            >
+            <Link to="/" className={addActiveOrNot('')}>
               Home
             </Link>
             <Link
@@ -60,10 +59,10 @@ const CustomNavbar = function () {
             >
               Prenotazioni
             </Link>
-            <Link to="/contact" className="nav-link">
+            <Link to="/contact" className={addActiveOrNot('contact')}>
               Contattaci
             </Link>
-            <Link to="/admin" className="nav-link">
+            <Link to="/admin" className={addActiveOrNot('admin')}>
               Admin
             </Link>
 
